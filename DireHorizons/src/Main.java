@@ -96,54 +96,59 @@ public class Main {
 		while(!ageVerif) {
 			System.out.println("My age: ");
 			String givenAge = cc_input.nextLine();
-			
-			if(Integer.parseInt(givenAge) >= 70 && Integer.parseInt(givenAge) <= 120) {
-				player.age = Integer.parseInt(givenAge);
-				System.out.println("I'm " + Integer.toString(player.age) + ". Who knew I'd live this long...");
-				System.out.println("Thanks to Conglomerate scientific advances, people usually live to 120.");
-				System.out.println("You have been awarded the 'Silver Fox' perk. You have a permanent +2 boost to Intelligence and Charm and will unlock some unique dialogue options.");
-				player.intelligence = player.intelligence + 2;
-				player.charm = player.charm + 2;
-				player.perks.add("silverFox");
-				//player.outputStats();
-				ageVerif = true;
-			} else if(Integer.parseInt(givenAge) > 120) {
-				System.out.println("I can't be that old... Even if I was, why would the Conglomeracy send people my age into space.");
-			} else if(Integer.parseInt(givenAge) < 70 && Integer.parseInt(givenAge) >= 50) {
-				player.age = Integer.parseInt(givenAge);
-				System.out.println("That's right, I'm " + Integer.toString(player.age) + ", with plenty of experience and I've still got plently of life in me. By Conglomercy standards at least.");
-				System.out.println("To Conglomerate citizens you'd be considered middle age. Your generation are well-respected for their dedication and sensibility.");
-				System.out.println("You've been awarded the 'Seasoned Boomer' perk. You have a permanent +2 boost to Strength and Leadership and will unlock some unique dialogue options.");
-				player.strength = player.strength + 2;
-				player.leadership = player.leadership + 2;
-				player.perks.add("seasonedBoomer");
-				//player.outputStats();
-				ageVerif = true;
-			} else if(Integer.parseInt(givenAge) < 50 && Integer.parseInt(givenAge) >= 30) {
-				player.age = Integer.parseInt(givenAge);
-				System.out.println("I'm only " + Integer.toString(player.age) + ". I might be young, but I'm fit and prepared for this mission. I'll make my family proud and prove to everyone I can do what's needed.");
-				System.out.println("Your generation are seen by some as rash and reckless, though your generational fitness and technological understanding is highly-valued.");
-				System.out.println("You've been awarded the 'Youthful Wiz' perk. You have a permanent +2 boost to Technology and Speed and will unlock some unique dialogue options.");
-				player.technology = player.technology + 2;
-				player.speed = player.speed + 2;
-				player.perks.add("youthfulWiz");
-				//player.outputStats();
-				ageVerif = true;
-			} else if(Integer.parseInt(givenAge) < 30 && Integer.parseInt(givenAge) >= 18){
-				player.age = Integer.parseInt(givenAge);
-				System.out.println(Integer.toString(player.age) + ". I'm very lucky to be selected for a mission like this at my age. I have so much to prove, and I must show that the youngest generation is capable of building this new civilisation.");
-				System.out.println("Your generation have been trained intensley for survival, as it is your age group who will be forced to fight when one of the Coalitions inevitably declairs war.");
-				System.out.println("You've been awarded the 'Child of Conflict' perk. You have a permanent +2 boost to Marksmanship and Survivability and will unlock some unique dialogue options.");
-				player.marksmanship = player.marksmanship + 2;
-				player.survivability = player.survivability + 2;
-				player.perks.add("childOfConflict");
-				//player.outputStats();
-				ageVerif = true;
-			} else if(Integer.parseInt(givenAge) < 18) {
-				System.out.println("I'm definetly not that young. There'd be no sense in the Conglomeracy sending someone so young and inexperienced.");
-			} else {
+			try {
+				if(Integer.parseInt(givenAge) >= 70 && Integer.parseInt(givenAge) <= 120) {
+					player.age = Integer.parseInt(givenAge);
+					System.out.println("I'm " + Integer.toString(player.age) + ". Who knew I'd live this long...");
+					System.out.println("Thanks to Conglomerate scientific advances, people usually live to 120.");
+					System.out.println("You have been awarded the 'Silver Fox' perk. You have a permanent +2 boost to Intelligence and Charm and will unlock some unique dialogue options.");
+					player.intelligence = player.intelligence + 2;
+					player.charm = player.charm + 2;
+					player.perks.add("silverFox");
+					//player.outputStats();
+					ageVerif = true;
+				} else if(Integer.parseInt(givenAge) > 120) {
+					System.out.println("I can't be that old... Even if I was, why would the Conglomeracy send people my age into space.");
+				} else if(Integer.parseInt(givenAge) < 70 && Integer.parseInt(givenAge) >= 50) {
+					player.age = Integer.parseInt(givenAge);
+					System.out.println("That's right, I'm " + Integer.toString(player.age) + ", with plenty of experience and I've still got plently of life in me. By Conglomercy standards at least.");
+					System.out.println("To Conglomerate citizens you'd be considered middle age. Your generation are well-respected for their dedication and sensibility.");
+					System.out.println("You've been awarded the 'Seasoned Boomer' perk. You have a permanent +2 boost to Strength and Leadership and will unlock some unique dialogue options.");
+					player.strength = player.strength + 2;
+					player.leadership = player.leadership + 2;
+					player.perks.add("seasonedBoomer");
+					//player.outputStats();
+					ageVerif = true;
+				} else if(Integer.parseInt(givenAge) < 50 && Integer.parseInt(givenAge) >= 30) {
+					player.age = Integer.parseInt(givenAge);
+					System.out.println("I'm only " + Integer.toString(player.age) + ". I might be young, but I'm fit and prepared for this mission. I'll make my family proud and prove to everyone I can do what's needed.");
+					System.out.println("Your generation are seen by some as rash and reckless, though your generational fitness and technological understanding is highly-valued.");
+					System.out.println("You've been awarded the 'Youthful Wiz' perk. You have a permanent +2 boost to Technology and Speed and will unlock some unique dialogue options.");
+					player.technology = player.technology + 2;
+					player.speed = player.speed + 2;
+					player.perks.add("youthfulWiz");
+					//player.outputStats();
+					ageVerif = true;
+				} else if(Integer.parseInt(givenAge) < 30 && Integer.parseInt(givenAge) >= 18){
+					player.age = Integer.parseInt(givenAge);
+					System.out.println(Integer.toString(player.age) + ". I'm very lucky to be selected for a mission like this at my age. I have so much to prove, and I must show that the youngest generation is capable of building this new civilisation.");
+					System.out.println("Your generation have been trained intensley for survival, as it is your age group who will be forced to fight when one of the Coalitions inevitably declairs war.");
+					System.out.println("You've been awarded the 'Child of Conflict' perk. You have a permanent +2 boost to Marksmanship and Survivability and will unlock some unique dialogue options.");
+					player.marksmanship = player.marksmanship + 2;
+					player.survivability = player.survivability + 2;
+					player.perks.add("childOfConflict");
+					//player.outputStats();
+					ageVerif = true;
+				} else if(Integer.parseInt(givenAge) < 18) {
+					System.out.println("I'm definetly not that young. There'd be no sense in the Conglomeracy sending someone so young and inexperienced.");
+				} //else {
+					//System.out.println("Thats not even a number... I need to starting thinking straight.");
+				//}
+			} 
+			catch(Exception e){
 				System.out.println("Thats not even a number... I need to starting thinking straight.");
 			}
+		
 		}
 		
 		System.out.println("You've escaped the while loop");
