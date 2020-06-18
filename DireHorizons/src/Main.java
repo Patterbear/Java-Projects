@@ -106,6 +106,7 @@ public class Main {
 					player.charm = player.charm + 2;
 					player.perks.add("silverFox");
 					//player.outputStats();
+					//cc_input.close();
 					ageVerif = true;
 				} else if(Integer.parseInt(givenAge) > 120) {
 					System.out.println("I can't be that old... Even if I was, why would the Conglomeracy send people my age into space.");
@@ -118,6 +119,7 @@ public class Main {
 					player.leadership = player.leadership + 2;
 					player.perks.add("seasonedBoomer");
 					//player.outputStats();
+					//cc_input.close();
 					ageVerif = true;
 				} else if(Integer.parseInt(givenAge) < 50 && Integer.parseInt(givenAge) >= 30) {
 					player.age = Integer.parseInt(givenAge);
@@ -128,6 +130,7 @@ public class Main {
 					player.speed = player.speed + 2;
 					player.perks.add("youthfulWiz");
 					//player.outputStats();
+					//cc_input.close();
 					ageVerif = true;
 				} else if(Integer.parseInt(givenAge) < 30 && Integer.parseInt(givenAge) >= 18){
 					player.age = Integer.parseInt(givenAge);
@@ -138,20 +141,119 @@ public class Main {
 					player.survivability = player.survivability + 2;
 					player.perks.add("childOfConflict");
 					//player.outputStats();
+					//cc_input.close();
 					ageVerif = true;
 				} else if(Integer.parseInt(givenAge) < 18) {
 					System.out.println("I'm definetly not that young. There'd be no sense in the Conglomeracy sending someone so young and inexperienced.");
-				} //else {
-					//System.out.println("Thats not even a number... I need to starting thinking straight.");
-				//}
+				} 
 			} 
 			catch(Exception e){
 				System.out.println("Thats not even a number... I need to starting thinking straight.");
 			}
 		
 		}
+		System.out.println();
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("The Conglomeracy consists of 60 countries. Your crewmen will include people from each nation. You and your family are from one of the most advanced nations, something you are very proud of.");
+		System.out.println();
+		boolean countrySet = false;
 		
-		System.out.println("You've escaped the while loop");
+		while (!countrySet){
+			System.out.println("[1] The Regal Union - The founder of the Conglomeracy, with natural-born, charismatic leaders and explorers.  ");
+			System.out.println("[2] The Exalted Raj - One of the oldest nations of the Conglomeracy, renowned for producing intellects and revolutionary technology.");
+			System.out.println("[3] The Magnate Dominion - A nation of two great peoples who have worked together for centuries to produce strong soldiers who can survive almost anything.");
+			System.out.println("[4] The Cape Ascendancy - A country where good fitness and reflexes are held in the highest regard. They say a Caper can shoot a target from 100 miles away.");
+			
+			Scanner countryInput = new Scanner(System.in);
+			System.out.println();
+			System.out.println("I musn't forget my roots. I'm from: ");
+			
+			String givenCountry = countryInput.nextLine();
+			
+			try {
+				if(Integer.parseInt(givenCountry) == 1) {
+					player.countryOfOrigin = "The Regal Union";
+					System.out.println("I'm from " + player.countryOfOrigin + ". I've proved to myself that I can be a good and diplomatic leader, now it's time to make my country proud.");
+					System.out.println("Due to your training in the Union, you have become a skilled leader and are trained in both diplomatic and aggressive approaches to problems.");
+					System.out.println("You have recieved a permanent +2 bonus to Leadership and Charm.");
+					player.leadership = player.leadership + 2;
+					player.charm = player.charm + 2;
+					player.perks.add("Reglish");
+					//countryInput.close();
+					countrySet = true;
+				} else if(Integer.parseInt(givenCountry) == 2) {
+					player.countryOfOrigin = "The Exalted Raj";
+					System.out.println("I'm from " + player.countryOfOrigin + ". I've proved to myself that I am intelligent and well-versed in the many branches of technology, now it's time to make my country proud.");
+					System.out.println("Due to your training in the Raj, you are incredibly intelligent and are proficient in the use of technology of all sorts.");
+					System.out.println("You have recieved a permanent +2 bonus to Intelligence and Technology.");
+					player.intelligence = player.intelligence + 2;
+					player.technology = player.technology + 2;
+					player.perks.add("Rajka");
+					//countryInput.close();
+					countrySet = true;
+				} else if(Integer.parseInt(givenCountry) == 3) {
+					player.countryOfOrigin = "The Magnate Dominion";
+					System.out.println("I'm from " + player.countryOfOrigin + ". I've proved to myself that I am a strong and resourceful warrior who can survive any scenario, now it's time to make my country proud.");
+					System.out.println("Due to your training in the Dominion, you are strong, resourceful and able to survive in harsh and hostile environments.");
+					System.out.println("You have recieved a permanent +2 bonus to Strength and Survivability.");
+					player.strength = player.strength + 2;
+					player.survivability = player.survivability + 2;
+					player.perks.add("Magnish");
+					//countryInput.close();
+					countrySet = true;
+				} else if(Integer.parseInt(givenCountry) == 4) {
+					player.countryOfOrigin = "The Cape Ascendancy";
+					System.out.println("I'm from " + player.countryOfOrigin + ". I've proved to myself that I am fast, agile, and an excellent marksman, now it's time to make my country proud.");
+					System.out.println("Due to your training in the Ascendancy, you are able to move faster for longer than your fellow Conglomeratis. You have a keen eye and are an excellent marksman.");
+					System.out.println("You have recieved a permanent +2 bonus to Speed and Marksmanship.");
+					player.speed = player.speed + 2;
+					player.marksmanship = player.marksmanship + 2;
+					player.perks.add("Caper");
+					//countryInput.close();
+					countrySet = true;
+				}
+			}
+			catch(Exception e) {
+				System.out.println("I'm definetly not from there. That's not even in the Conglomeracy.");
+				System.out.println("Please choose a number 1-4 to select your country of origin.");
+				System.out.println();
+			}
+			
+		}
+		System.out.println();
+		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("Across all of the Conglomeracy, each nation has its own vast pool of professionals of various trades and specialties.\n Everyone who is able has a speciality which they have honed, and this proficiency decides what role they will carry out for their country.");
+		System.out.println("For the Dire Horizons program, only people of certain professions are chosen. Your job and speciality makes you a suitable candidate for the mission.");
+		System.out.println();
+		System.out.println("[1] Engineering Corps - Trained in everything from modifying systems to programming Conglomerate, engineers are the backbone of any Conglomerate program.");
+		System.out.println("[2] Military Corps - Trained in both unarmed and armed combat, Conglomerate soldiers are fearless and reliable. They provide security and policing across the nations.");
+		System.out.println("[3] Navigational Corps - Trained to fly the latest rockets and aeroplanes, Conglomerate navigators have learnt the ins and outs of the complex navigational systems of Dire Horizon's vessels.");
+		System.out.println("[4] Diplomatic Corps - Trained in diplomacy and negociation, Conglomerate diplomats are experts in all matters social and politcial. They are responsible for communication and any possible first contact procedures. ");
+		System.out.println("Lastly, why am I here? I'm part of the: ");
+		
+		Scanner jobInput = new Scanner(System.in);
+		
+		String givenJob = jobInput.nextLine();
+		System.out.println(givenJob);
+		
+		boolean jobSet = false;
+		while(jobSet = false) {
+			try {
+				if(Integer.parseInt(givenJob) == 1) {
+					player.profession = "Engineering Corps";
+					System.out.println("I'm a member of the " + player.profession + ". I'm a damn good engineer and it's my duty to keep the ship and all its systems operational.");
+					System.out.println("Due to your rigorous engineer training you are skilled in the use of technology, especially that which is an integral part of the ship.");
+					System.out.println("");
+				}
+			}
+			catch(Exception e) {
+				System.out.println("Invalid input.");
+			}
+		}
+
+	}
+		
+
 		
 		 
 		
@@ -165,6 +267,6 @@ public class Main {
 		//System.out.println(player.firstName);
 		//playerInput.close();
 		
-	}
-
 }
+
+
