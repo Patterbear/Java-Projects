@@ -4,4 +4,5 @@ public class Maze {
 	public int[][] maze;
 	public LinkedList<Position> path = new LinkedList<Position>();
 	public Position start;
+	public LinkedList<String> finalPath = new LinkedList<String>();
 }
