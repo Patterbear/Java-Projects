@@ -1,24 +1,21 @@
-import java.util.HashMap;
-import java.util.Set;
-
 public class Collections {
 
 	public static void main(String[] args) {
 		
-		//Hashmap created with String and Integer data types
-		HashMap<String, Integer> ids = new HashMap<String, Integer>();
+		//Objects 'p' and 'q' created from class 'Person' with field 'email' and 'ln' passed in
+		Person p = new Person("email@email.com", "McGregor");
+		Person q = new Person("email@email.com", "McGregor");
 		
-		//Values added to HashMap
-		ids.put("Benjamin McGregor", 5);
-		ids.put("Adam McGregor", ids.getOrDefault("Adam McGregor", 0) + 1);
+		//Object 'pos1' and 'pos2' created from 'Position' class
+		Position pos1 = new Position(10,10);
+		Position pos2 = new Position(10,10);
 		
-		//Set created from HashMap
-		Set<String> keys = ids.keySet();
+		//Position fields assigned to objects 'p' and 'q'
+		p.position = pos1;
+		q.position = pos2;
 		
-		//For loop to output contents of HashMap set
-		for(String key : keys) {
-			System.out.println(key);
-			System.out.println(ids.get(key));
-		}
+		//Hash codes of objects ouputted
+		System.out.println(p.hashCode());
+		System.out.println(q.hashCode());
 	}
 }
