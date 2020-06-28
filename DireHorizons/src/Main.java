@@ -230,6 +230,7 @@ public class Main {
 		System.out.println("[3] Navigational Corps - Trained to fly the latest rockets and aeroplanes, Conglomerate navigators have learnt the ins and outs of the complex navigational systems of Dire Horizon's vessels.");
 		System.out.println("[4] Diplomatic Corps - Trained in diplomacy and negociation, Conglomerate diplomats are experts in all matters social and politcial. They are responsible for communication and any possible first contact procedures. ");
 		System.out.println("Lastly, why am I here? I'm part of the: ");
+		System.out.println();
 		
 		Scanner jobInput = new Scanner(System.in);
 		
@@ -237,20 +238,53 @@ public class Main {
 		System.out.println(givenJob);
 		
 		boolean jobSet = false;
-		while(jobSet = false) {
+		while(!jobSet) {
 			try {
 				if(Integer.parseInt(givenJob) == 1) {
 					player.profession = "Engineering Corps";
 					System.out.println("I'm a member of the " + player.profession + ". I'm a damn good engineer and it's my duty to keep the ship and all its systems operational.");
-					System.out.println("Due to your rigorous engineer training you are skilled in the use of technology, especially that which is an integral part of the ship.");
-					System.out.println("");
+					System.out.println("Due to your rigorous engineer training you are skilled in the use of technology and are an expert in teamwork and communication.");
+					System.out.println("You have recieved a +2 bonus to Technology and Charm and  and will unlock some unique dialogue options.");
+					player.technology = player.technology + 2;
+					player.charm = player.charm + 2;
+					player.perks.add("engineer");
+					jobSet = true;
+				} else if(Integer.parseInt(givenJob) == 2) {
+					player.profession = "Military Corps";
+					System.out.println("I'm a member of the " + player.profession + ". I'm a damn good soldier and it's my duty to keep the ship and its crew safe from any threats, internal or external.");
+					System.out.println("Due to your rigorous miltary training you are a skilled marksman and a strong hand-to-hand combatant.");
+					System.out.println("You have recieved a +2 bonus to Marksmanship and Strength and will unlock some unique dialogue options.");
+					player.marksmanship = player.marksmanship + 2;
+					player.strength = player.strength + 2;
+					player.perks.add("soldier");
+					jobSet = true;
+				} else if(Integer.parseInt(givenJob) == 3) {
+					player.profession = "Navigational Corps";
+					System.out.println("I'm a member of the " + player.profession + ". I'm a damn good navigator and it's my duty to guide the ship and its crew to our destination and ensure that our crew survives whatever environments we end up in.");
+					System.out.println("Due to your rigorous navigator training you are a skilled navigator and an expert at surviving and navigating harsh environments.");
+					System.out.println("You have recieved a +2 bonus to Survivability and Leadership and will unlock some unique dialogue options.");
+					player.survivability = player.survivability + 2;
+					player.leadership = player.leadership + 2;
+					player.perks.add("navigator");
+					jobSet = true;
+				} else if(Integer.parseInt(givenJob) == 4) {
+					player.profession = "Diplomatic Corps";
+					System.out.println("I'm a member of the " + player.profession + ". I'm a damn good diplomat and it's my duty to ensure the crew is functioning at optimum capacity and that any disputes are resolved. If we make any sort of contact with another civilisation, our corps will be put into action.");
+					System.out.println("Due to your rigorous diplomat training you are a skilled diplomat and an expert sociologist and negociator. Your corps is renowned for its emphasis on both mental and physical health.");
+					System.out.println("You have recieved a +2 bonus to Intelligence and Speed and will unlock some unique dialogue options.");
+					player.survivability = player.intelligence + 2;
+					player.leadership = player.speed + 2;
+					player.perks.add("diplomat");
+					jobSet = true;
+					player.outputPerks();
+					player.outputStats();
+					
 				}
 			}
 			catch(Exception e) {
-				System.out.println("Invalid input.");
+				System.out.println("That's definetly not my profession.");
 			}
 		}
-
 	}
 		
 

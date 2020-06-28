@@ -8,6 +8,7 @@ public class Character {
 	public String countryOfOrigin;
 	public int age;
 	public String profession;
+
 	
 	public int strength = 0;
 	public int speed = 0;
@@ -37,7 +38,7 @@ public class Character {
 	}
 	
 	public void outputPerks() {
-		//System.out.println(Arrays.toString(perks));
+		System.out.println(Arrays.toString(perks.toArray()));
 	}
 	
 }
