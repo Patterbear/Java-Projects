@@ -2,7 +2,7 @@ import java.util.Objects;
 
 public class Person {
 	
-	//Attributes created
+	//Attributes defined
 	String email;
 	String ln;
 	Position position;
@@ -13,13 +13,13 @@ public class Person {
 		this.ln = ln;
 	}
 
-	//Override for 'hashCode' method
+	//Override for 'hashCode' method so that it incorporates all attributes from Person object
 	@Override
 	public int hashCode() {
 		return Objects.hash(email, ln, position);
 	}
 
-	//Overwrite for 'equals' method
+	//Overwrite for 'equals' method so that it compares attribute values and not their memory addresses
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
