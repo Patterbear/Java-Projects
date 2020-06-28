@@ -1,6 +1,6 @@
 public class Item <T> {
 	private T x;
-	
+
 	T getX() {
 		return x;
 	}

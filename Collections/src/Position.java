@@ -11,6 +11,7 @@ public class Position {
 		this.y = y;
 	}
 
+	//hashCode method overwritten to return a result that incorporates both the 'x' and 'y' variables
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -20,6 +21,7 @@ public class Position {
 		return result;
 	}
 
+	//equals method overwritten to compare values of the fields instead of their memory locations
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

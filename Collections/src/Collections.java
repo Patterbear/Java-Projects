@@ -4,9 +4,5 @@ public class Collections {
 		Item<Person> item = new Item<Person>();
 		Person p = new Person("Hello", "Hello");
 		item.setX(p);
-		
-		Person p2 = item.getX();
-		
-
 	}
 }
