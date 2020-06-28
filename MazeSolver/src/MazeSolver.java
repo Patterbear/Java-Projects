@@ -169,7 +169,7 @@ public class MazeSolver {
 			m.finalPath.remove();
 			System.out.println("Backtracking...");
 			
-			//Message output if stack is empty
+			//Returns 'false' if stack is empty
 			if(m.path.size() <= 0) {
 				return false;
 			}
