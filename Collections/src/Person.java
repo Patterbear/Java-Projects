@@ -12,6 +12,11 @@ public class Person {
 		this.email = email;
 		this.ln = ln;
 	}
+	
+	//Empty constructor method created so that instantiation doesn't require giving any values
+	Person(){
+		
+	}
 
 	//Override for 'hashCode' method so that it incorporates all attributes from Person object
 	@Override
