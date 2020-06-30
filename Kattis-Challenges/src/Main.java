@@ -6,16 +6,23 @@ public class Main {
 		Scanner in = new Scanner(System.in);
 		
 		int x = in.nextInt();
-		int n = in.nextInt();
-		int p = 0;
-		int r = 0;
+		int y = in.nextInt();
 		
-		for(int i = 0; i < n; i++) {
-			p = in.nextInt();
-			r = r + x - p;
+		in.close();
+		
+		if(x > 0) {
+			if(y > 0) {
+				System.out.println(1);
+			} else {
+				System.out.println(4);
+			}
+		} else {
+			if(y > 0) {
+				System.out.println(2);
+			} else {
+				System.out.println(3);
+			}
 		}
-		System.out.println((r + x));
-		
 	}
 
 }
