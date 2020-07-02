@@ -5,24 +5,15 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		int x = in.nextInt();
-		int y = in.nextInt();
+		int n = in.nextInt();
 		
 		in.close();
 		
-		if(x > 0) {
-			if(y > 0) {
-				System.out.println(1);
-			} else {
-				System.out.println(4);
-			}
+		if (n % 2 == 0) {
+			System.out.println("Bob");
 		} else {
-			if(y > 0) {
-				System.out.println(2);
-			} else {
-				System.out.println(3);
-			}
+			System.out.println("Alice");
 		}
-	}
+	} 
 
 }
