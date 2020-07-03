@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -5,12 +7,27 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		int n = in.nextInt();
+		String values = in.nextLine();
 		in.close();
 		
-		for(int i = 0; i < n; i++) {
-			System.out.println(i + 1 + " Abracadabra");
+		String[] valuesArray = values.split(" ", 2);
+		
+		double a = Integer.parseInt(valuesArray[0]);
+		double i = Integer.parseInt(valuesArray[1]);
+		double t = i;
+		double c = a * i;
+		
+		for(int j = 0; i > t - 1; j++) {
+			c = c - 1;
+			i = c / a;
 		}
+		System.out.println((int)c + 1);
+		
+		
+		
+		
+	
+		
 	} 
 
 }
