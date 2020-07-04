@@ -7,21 +7,26 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		String values = in.nextLine();
-		in.close();
+		int n = in.nextInt();
+		int x = 0;
+		int l = 0;
 		
-		String[] valuesArray = values.split(" ", 2);
-		
-		double a = Integer.parseInt(valuesArray[0]);
-		double i = Integer.parseInt(valuesArray[1]);
-		double t = i;
-		double c = a * i;
-		
-		for(int j = 0; i > t - 1; j++) {
-			c = c - 1;
-			i = c / a;
+		for(int i = 0; i < n; i++) {
+			StringBuilder sb = new StringBuilder();
+			l = in.nextInt();
+			sb.append(l);
+			sb = sb.reverse();
+			
+			int p = Integer.parseInt(sb.toString().substring(0, 1));
+			int q = Integer.parseInt(sb.reverse().toString().substring(0, sb.length() - 1));
+			
+			x = (int) (x + Math.pow((double) q, (double) p));
+			
 		}
-		System.out.println((int)c + 1);
+		System.out.println(x);
+
+		
+		
 		
 		
 		
