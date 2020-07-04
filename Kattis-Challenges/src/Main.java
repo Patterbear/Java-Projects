@@ -8,30 +8,18 @@ public class Main {
 		Scanner in = new Scanner(System.in);
 		
 		int n = in.nextInt();
-		int x = 0;
-		int l = 0;
+		int x;
 		
 		for(int i = 0; i < n; i++) {
-			StringBuilder sb = new StringBuilder();
-			l = in.nextInt();
-			sb.append(l);
-			sb = sb.reverse();
-			
-			int p = Integer.parseInt(sb.toString().substring(0, 1));
-			int q = Integer.parseInt(sb.reverse().toString().substring(0, sb.length() - 1));
-			
-			x = (int) (x + Math.pow((double) q, (double) p));
-			
+			x = in.nextInt();
+			if(x % 2 == 0) {
+				System.out.println(x + " is even");
+			}
+			else {
+				System.out.println(x + " is odd");
+			}
 		}
-		System.out.println(x);
-
-		
-		
-		
-		
-		
-		
-	
+		in.close();
 		
 	} 
 
