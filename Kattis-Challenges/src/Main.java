@@ -1,22 +1,23 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		double q;
-		double y;
-		double t = 0;
+		ArrayList<String> initials = new ArrayList<String>();
+		String o = "";
 		
-		int n = Integer.parseInt(in.nextLine());
-		
-		for(int i = 0; i < n; i++) {
-			String[] qy = in.nextLine().split(" ", 2);
-			q = Double.parseDouble(qy[0]);
-			y = Double.parseDouble(qy[1]);
-			t = t + q *y;
+		String[] names = in.nextLine().split("-");
+		for(int i = 0; i < names.length; i++) {
+			initials.add(names[i].substring(0, 1));
 		}
-		System.out.println(t);
+		in.close();
+		
+		for(int i = 0; i < initials.size(); i++) {
+			o = o + initials.get(i);
+		}
+		System.out.println(o);
 	}
 
 }
