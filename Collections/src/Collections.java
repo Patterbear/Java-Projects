@@ -1,44 +1,35 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Collections {
 
 	public static void main(String[] args) {
 		
-		//ArrayList created to store objects created from 'Person' class
-		ArrayList<Person> people = new ArrayList<Person>();
-		
 		//Object a created from class 'Admin'
 		Admin a = new Admin();
 		
-		//Object 'a' added to 'people' ArrayList
-		people.add(a);
+		//Assigning attributes to object 'a'
+		a.email = "test@test.com";
+		a.ln = "McGregor";
 		
 		//ArrayList created to store objects created from 'Admin'class
 		ArrayList<Admin> admins = new ArrayList<Admin>();
+		admins.add(a);
 		
-		//ArrayList created to store Admin objects as 'Person' types so that the methods can use them
-		ArrayList<Person> adminsAsPerson = new ArrayList<Person>();
+		//List created from casting 'admins' to type 'Person'
+		List<Person> people = (List<Person>)(List<?>)admins;		
 		
-		//For loop to add all of the objects in the 'admin' ArrayList into the 'adminsAsPerson' ArrayList
-		for(Admin admin : admins) {
-			adminsAsPerson.add((Person)admin);
+		//Method called
+		doSomething(people);
+
+	}
+	
+	//Method to output contents of the 'p_list' List.
+	static void doSomething(List<Person> p_list) {
+		for(Person p : p_list) {
+			System.out.println(p.email + " " + p.ln);
 		}
-		
-		//Methods called
-		doSomething(a);
-		doSomethingElse(adminsAsPerson);
-		
-	}
-	
-	//Method to output memory address of object 'p'
-	static void doSomething(Person p) {
-		System.out.println(p);
-	}
-	
-	//Method to output contents of the 'p_arrayList' ArrayList.
-	static void doSomethingElse(ArrayList<Person> p_arrayList) {
-		System.out.println(Arrays.deepToString(p_arrayList.toArray()));
 	}
 	
 }
