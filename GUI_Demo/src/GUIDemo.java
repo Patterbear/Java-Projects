@@ -42,14 +42,22 @@ public class GUIDemo {
 	}
 	
 	public void setUpButtonListeners() {
-		ActionListener buttonListener = new ActionListener() {
+		ActionListener buttonListener1 = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
-				System.out.println("click!");
+				System.out.println("beep");
 			}
 		};
 		
-		button1.addActionListener(buttonListener);
+		ActionListener buttonListener2 = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				System.out.println("boop");
+			}
+		};
+		
+		button1.addActionListener(buttonListener1);
+		button2.addActionListener(buttonListener2);
 	}
 
 }
