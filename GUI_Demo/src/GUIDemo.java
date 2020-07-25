@@ -2,7 +2,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
+import javax.swing.JTextArea;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -11,6 +12,7 @@ public class GUIDemo {
 	
 	private JFrame frame;
 	private JTextField input;
+	private JTextArea ta;
 	private JLabel label;
 	private JButton button1;
 	private JButton button2;
@@ -21,6 +23,7 @@ public class GUIDemo {
 		frame = new JFrame();
 		label = new JLabel("Hello");
 		input = new JTextField(10);
+		ta = new JTextArea("Hello. \nThis is JTextArea.");
 		button1 = new JButton("Button 1");
 		button2 = new JButton("Button 2");
 		width = w;
@@ -29,14 +32,15 @@ public class GUIDemo {
 	
 	public void setUpGUI() {
 		Container cp = frame.getContentPane();
-		FlowLayout flow = new FlowLayout();
-		cp.setLayout(flow);
+		BorderLayout brdr = new BorderLayout();
+		cp.setLayout(brdr);
 		frame.setSize(width, height);
 		frame.setTitle("GUI Demo");
-		cp.add(input);
-		cp.add(label);
-		cp.add(button1);
-		cp.add(button2);
+		cp.add(input, BorderLayout.NORTH);
+		cp.add(label, BorderLayout.SOUTH);
+		cp.add(button1, BorderLayout.WEST);
+		cp.add(button2, BorderLayout.EAST);
+		cp.add(ta, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
