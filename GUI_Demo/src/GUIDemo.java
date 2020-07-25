@@ -42,22 +42,21 @@ public class GUIDemo {
 	}
 	
 	public void setUpButtonListeners() {
-		ActionListener buttonListener1 = new ActionListener() {
+		ActionListener buttonListener = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
-				System.out.println("beep");
+				Object o = ae.getSource();
+				if(o == button1) {
+					System.out.println("beep");
+				} else if (o == button2) {
+					System.out.println("boop");
+				} 
+				
 			}
 		};
 		
-		ActionListener buttonListener2 = new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent ae) {
-				System.out.println("boop");
-			}
-		};
-		
-		button1.addActionListener(buttonListener1);
-		button2.addActionListener(buttonListener2);
+		button1.addActionListener(buttonListener);
+		button2.addActionListener(buttonListener);
 	}
 
 }
