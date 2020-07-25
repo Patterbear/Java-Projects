@@ -47,7 +47,9 @@ public class GUIDemo {
 			public void actionPerformed(ActionEvent ae) {
 				Object o = ae.getSource();
 				if(o == button1) {
-					System.out.println("beep");
+					String s = input.getText();
+					label.setText(s);
+					input.setText("");
 				} else if (o == button2) {
 					System.out.println("boop");
 				} 
