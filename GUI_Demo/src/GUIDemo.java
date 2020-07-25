@@ -51,7 +51,11 @@ public class GUIDemo {
 					label.setText(s);
 					input.setText("");
 				} else if (o == button2) {
-					System.out.println("boop");
+					String val = input.getText();
+					double n = Double.parseDouble(val);
+					double result = n*2;
+					label.setText(Double.toString(result));
+					
 				} 
 				
 			}
