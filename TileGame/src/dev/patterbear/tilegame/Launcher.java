@@ -5,7 +5,8 @@ import dev.patterbear.tilegame.display.Display;
 public class Launcher {
 	
 	public static void main(String[] args) {
-		new Game("Game Name", 400, 400);
+		Game game = new Game("Game Name", 640, 360);
+		game.start();
 	}
 
 }
