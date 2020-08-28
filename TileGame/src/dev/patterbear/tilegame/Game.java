@@ -3,8 +3,10 @@ package dev.patterbear.tilegame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import dev.patterbear.tilegame.display.Display;
+import dev.patterbear.tilegame.gfx.ImageLoader;
 
 public class Game implements Runnable {
 	
@@ -18,6 +20,8 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	private BufferedImage testImage;
+	
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
@@ -27,6 +31,7 @@ public class Game implements Runnable {
 	
 	private void init() {
 		display = new Display(title, width, height);
+		testImage = ImageLoader.loadImage("/textures/test.png");
 	}
 	
 	private void tick() {
@@ -44,11 +49,7 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.setColor(Color.red);
-		g.fillRect(10, 50, 50, 70);
-		g.setColor(Color.green);
-		g.fillRect(0, 0, 10, 10);
-		
+		g.drawImage(testImage, 20, 20, null);
 		
 		//End of drawing
 		bs.show();
