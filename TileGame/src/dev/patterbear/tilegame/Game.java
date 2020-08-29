@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 
 import dev.patterbear.tilegame.display.Display;
 import dev.patterbear.tilegame.gfx.ImageLoader;
+import dev.patterbear.tilegame.gfx.SpriteSheet;
 
 public class Game implements Runnable {
 	
@@ -20,7 +21,8 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
-	private BufferedImage testImage;
+	private BufferedImage test;
+	private SpriteSheet sheet;
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -31,7 +33,8 @@ public class Game implements Runnable {
 	
 	private void init() {
 		display = new Display(title, width, height);
-		testImage = ImageLoader.loadImage("/textures/test.png");
+		test = ImageLoader.loadImage("/textures/sheet.png");
+		sheet = new SpriteSheet(test);
 	}
 	
 	private void tick() {
@@ -49,8 +52,9 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.drawImage(testImage, 20, 20, null);
-		
+		g.drawImage(sheet.crop(0, 0, 32, 32), 5, 5 ,null);
+		g.drawImage(sheet.crop(32, 0, 32, 32), 50, 5 ,null);
+
 		//End of drawing
 		bs.show();
 		g.dispose();
