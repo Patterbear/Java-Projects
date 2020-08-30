@@ -1,14 +1,9 @@
 package dev.patterbear.tilegame;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-
 import dev.patterbear.tilegame.display.Display;
 import dev.patterbear.tilegame.gfx.Assets;
-import dev.patterbear.tilegame.gfx.ImageLoader;
-import dev.patterbear.tilegame.gfx.SpriteSheet;
 
 public class Game implements Runnable {
 	
@@ -35,8 +30,10 @@ public class Game implements Runnable {
 		Assets.init();
 	}
 	
+	int x = 0;
+	
 	private void tick() {
-		
+		x += 1;
 	}
 	
 	private void render() {
@@ -50,11 +47,7 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.drawImage(Assets.player, 0, 0, null);
-		g.drawImage(Assets.grass, 50, 0, null);
-		g.drawImage(Assets.dirt, 100, 0, null);
-		g.drawImage(Assets.stone, 150, 0, null);
-		g.drawImage(Assets.tree, 200, 0, null);
+		g.drawImage(Assets.grass, x, 0, null);
 		
 		
 		//End of drawing
@@ -68,9 +61,33 @@ public class Game implements Runnable {
 		
 		init();
 		
+		int fps = 60;
+		double timePerTick = 1000000000 / fps;
+		double delta = 0;
+		long now;
+		long lastTime = System.nanoTime();
+		long timer = 0;
+		int ticks = 0;
+		
 		while(running) {
-			tick();
-			render();
+			now = System.nanoTime();
+			delta += (now - lastTime) / timePerTick;
+			timer += now - lastTime;
+			lastTime = now;
+			
+			if(delta >= 1) {
+				tick();
+				render();
+				ticks++;
+				delta--;
+			}
+			
+			if(timer >= 1000000000) {
+				System.out.println("Ticks and Frames: " + ticks);
+				ticks = 0;
+				timer = 0;
+			}
+			
 		}
 		
 		stop();
