@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import dev.patterbear.tilegame.display.Display;
 import dev.patterbear.tilegame.gfx.Assets;
+import dev.patterbear.tilegame.states.GameState;
+import dev.patterbear.tilegame.states.State;
 
 public class Game implements Runnable {
 	
@@ -17,6 +19,9 @@ public class Game implements Runnable {
 	private BufferStrategy bs;
 	private Graphics g;
 	
+	//States
+	private State gameState;
+	
 	
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -28,12 +33,16 @@ public class Game implements Runnable {
 	private void init() {
 		display = new Display(title, width, height);
 		Assets.init();
+		
+		gameState = new GameState();
+		State.setState(gameState);
 	}
-	
-	int x = 0;
+
 	
 	private void tick() {
-		x += 1;
+		if(State.getState() != null) {
+			State.getState().tick();
+		}
 	}
 	
 	private void render() {
@@ -47,7 +56,9 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 		//Draw here
 		
-		g.drawImage(Assets.grass, x, 0, null);
+		if(State.getState() != null) {
+			State.getState().render(g);
+		}
 		
 		
 		//End of drawing
