@@ -5,6 +5,8 @@ import java.awt.image.BufferStrategy;
 import dev.patterbear.tilegame.display.Display;
 import dev.patterbear.tilegame.gfx.Assets;
 import dev.patterbear.tilegame.states.GameState;
+import dev.patterbear.tilegame.states.MenuState;
+import dev.patterbear.tilegame.states.SettingsState;
 import dev.patterbear.tilegame.states.State;
 
 public class Game implements Runnable {
@@ -21,6 +23,8 @@ public class Game implements Runnable {
 	
 	//States
 	private State gameState;
+	private State menuState;
+	private State settingsState;
 	
 	
 	public Game(String title, int width, int height) {
@@ -35,6 +39,8 @@ public class Game implements Runnable {
 		Assets.init();
 		
 		gameState = new GameState();
+		menuState = new MenuState();
+		settingsState = new SettingsState();
 		State.setState(gameState);
 	}
 
