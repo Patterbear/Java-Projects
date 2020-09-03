@@ -2,10 +2,12 @@ package dev.patterbear.tilegame.states;
 
 import java.awt.Graphics;
 
+import dev.patterbear.tilegame.Game;
+
 public class SettingsState extends State {
 
-	public SettingsState() {
-		
+	public SettingsState(Game game) {
+		super(game);
 	}
 	
 	@Override
